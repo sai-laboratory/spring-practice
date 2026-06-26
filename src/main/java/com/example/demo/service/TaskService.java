@@ -1,6 +1,10 @@
-package com.example.demo;
+package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Task;
+import com.example.demo.repository.TaskRepository;
+
 import java.util.List;
 
 @Service
@@ -21,5 +25,10 @@ public class TaskService {
         if (title != null && !title.isBlank()) {
             taskRepository.save(new Task(title, 0));
         }
+    }
+
+    // 削除
+    public void deleteTask(Long id) {
+        taskRepository.deleteById(id);
     }
 }

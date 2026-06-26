@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 public class TodoForm {
     private int id;
