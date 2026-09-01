@@ -27,6 +27,14 @@ public class TaskService {
         }
     }
 
+    // 更新
+    public void updateStatus(Long id, int status) {
+        taskRepository.findById(id).ifPresent(task -> {
+            task.setStatus(status);
+            taskRepository.save(task);
+        });
+    }
+
     // 削除
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);

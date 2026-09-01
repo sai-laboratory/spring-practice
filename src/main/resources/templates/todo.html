@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Todoアプリ</title>
+    <style>
+        .done { text-decoration: line-through; color: #888; }
+        ul { list-style: none; padding: 0; }
+        li { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    </style>
 </head>
 <body>
     <h1>Todoリスト</h1>
@@ -15,11 +20,19 @@
     <hr>
 
     <ul>
-        <li th:each="todo : ${todos}">
-            <span th:text="${todo.id}"></span>
-            <span th:text="${todo.title}"></span>
-            <span th:text="${todo.status}"></span>
-        </li>
+        <th:block th:each="todo : ${todos}">
+            <li>
+                <span th:text="${todo.title}" th:classappend="${todo.status == 1} ? 'done' : ''">タスク名</span>
+
+                <form th:if="${todo.status == 0}" th:action="@{/todo/{id}/done(id=${todo.id})}" method="post">
+                    <button type="submit">完了</button>
+                </form>
+
+                <form th:action="@{/todo/{id}/delete(id=${todo.id})}" method="post">
+                    <button type="submit">削除</button>
+                </form>
+            </li>
+        </th:block>
     </ul>
 </body>
 </html>
