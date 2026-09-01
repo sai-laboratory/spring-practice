@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TaskController {
-
+/*
     @GetMapping("/api/tasks")
     public List<Task> getTasks() {
         List<Task> taskList = new ArrayList<>();
@@ -17,5 +17,5 @@ public class TaskController {
 
         return taskList;
     }
-
+*/
 }
